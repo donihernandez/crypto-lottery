@@ -1,8 +1,21 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+
+import {
+  useContract, 
+  useMetamask,
+  useDisconnect,
+  useAddress,
+} from '@thirdweb-dev/react'
+
 import Header from '../components/Header'
+import Login from '../components/Login'
 
 const Home: NextPage = () => {
+  const address = useAddress()
+
+  if(!address) return <Login />
+
   return (
     <div className='bg-slate-900 min-h-screen flex flex-col'>
       <Head>
