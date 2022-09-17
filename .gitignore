@@ -30,3 +30,13 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# typescript
+*.tsbuildinfo
+
+.eslintcache
+
+cypress/support/
+cypress/fixtures/
+cypress/snapshots/
+cypress/downloads/

@@ -1,30 +1,59 @@
 {
-  "name": "crypto-lottery",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@heroicons/react": "^2.0.11",
-    "@thirdweb-dev/react": "^3.0.0",
-    "@thirdweb-dev/sdk": "^3.0.0",
-    "ethers": "^5.7.1",
-    "next": "12.3.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "@types/node": "^18.7.18",
-    "@types/react": "^18.0.20",
-    "autoprefixer": "^10.4.10",
-    "eslint": "8.23.1",
-    "eslint-config-next": "12.3.0",
-    "postcss": "^8.4.16",
-    "tailwindcss": "^3.1.8",
-    "typescript": "^4.8.3"
-  }
+    "name": "crypto-lottery",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "prepare": "husky install"
+    },
+    "dependencies": {
+        "@heroicons/react": "^2.0.11",
+        "@thirdweb-dev/react": "^3.0.0",
+        "@thirdweb-dev/sdk": "^3.0.0",
+        "ethers": "^5.7.1",
+        "next": "12.3.0",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-spinners": "^0.13.4"
+    },
+    "devDependencies": {
+        "@types/node": "^18.7.18",
+        "@types/react": "^18.0.20",
+        "autoprefixer": "^10.4.10",
+        "eslint": "8.23.1",
+        "eslint-config-next": "12.3.0",
+        "postcss": "^8.4.16",
+        "tailwindcss": "^3.1.8",
+        "typescript": "^4.8.3",
+        "lint-staged": "^12.4.1",
+        "prettier": "^2.6.2",
+        "start-server-and-test": "^1.14.0",
+        "@typescript-eslint/eslint-plugin": "^5.26.0",
+        "@typescript-eslint/parser": "^5.26.0",
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-import-resolver-typescript": "^2.7.1",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-react": "^7.30.0",
+        "eslint-plugin-react-hooks": "^4.5.0",
+        "eslint-plugin-testing-library": "^5.5.1",
+        "husky": "^8.0.1"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "husky": {
+        "hooks": {
+            "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+        }
+    },
+    "lint-staged": {
+        "**.(js|ts|tsx|jsx)": "eslint --cache --fix",
+        "*.{js,css,md}": "prettier --write"
+    }
 }

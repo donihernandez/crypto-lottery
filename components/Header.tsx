@@ -1,50 +1,61 @@
-import Image from 'next/image'
-import type { FC } from 'react'
-import { Bars3BottomRightIcon } from '@heroicons/react/24/solid'
-import { useAddress, useDisconnect } from '@thirdweb-dev/react'
+import Image from 'next/image';
+import type { FC } from 'react';
+import { Bars3BottomRightIcon } from '@heroicons/react/24/solid';
+import { useAddress, useDisconnect } from '@thirdweb-dev/react';
 
-import NavButton from './NavButton'
+import NavButton from './NavButton';
 
 const Header: FC = () => {
     const address = useAddress();
     const disconnect = useDisconnect();
 
     return (
-        <header className='grid grid-cols-2 md:grid-cols-5 justify-between items-center p-5'>
+        <header
+            className="grid grid-cols-2 
+        md:grid-cols-5 justify-between items-center p-5"
+        >
             <div className="flex items-center space-x-2">
-            <div>
-                <Image
-                    className='rounded h-20 w-20'
-                    height="80px"
-                    width="80px"
-                    src="/images/crypto_lottery.png"/>
-            </div>
-            <div>
-                <h1 className='text-lg text-white font-bold'>
-                    Crypto Lottery
-                </h1>
-                <p className='text-xs text-blue-500'>
-                    User: {address?.substring(0, 5)}...{address?.substring(address.length, address.length - 5)}
-                </p>
-            </div>
-            </div>
-                
-            <div className='bg-slate-800 hidden md:flex md:col-span-3 items-center justify-center rounded-md'>
-                <div className='p-4 space-x-2'>
-                    <NavButton isActive title='Buy Tickets'/>
-                    <NavButton onClick={disconnect} title='Logout'/>
-                </div>        
+                <div>
+                    <Image
+                        alt="Crypto Lottery Logo"
+                        className="rounded h-20 w-20"
+                        height="80px"
+                        src="/images/crypto_lottery.png"
+                        width="80px"
+                    />
+                </div>
+                <div>
+                    <h1 className="text-lg text-white font-bold">
+                        Crypto Lottery
+                    </h1>
+                    <p className="text-xs text-blue-500">
+                        User: {address?.substring(0, 5)}...
+                        {address?.substring(address.length, address.length - 5)}
+                    </p>
+                </div>
             </div>
 
-            <div className='flex flex-col ml-auto text-right'>
-                <Bars3BottomRightIcon className='h-8 w-8 mx-auto text-white cursor-pointer' />
-                <span className='md:hidden'>
-                    <NavButton onClick={disconnect} title='Logout' />
+            <div
+                className="bg-slate-800 hidden md:flex 
+            md:col-span-3 items-center justify-center rounded-md"
+            >
+                <div className="p-4 space-x-2">
+                    <NavButton isActive title="Buy Tickets" />
+                    <NavButton onClick={disconnect} title="Logout" />
+                </div>
+            </div>
+
+            <div className="flex flex-col ml-auto text-right">
+                <Bars3BottomRightIcon
+                    className="h-8 w-8 mx-auto
+                 text-white cursor-pointer"
+                />
+                <span className="md:hidden">
+                    <NavButton onClick={disconnect} title="Logout" />
                 </span>
             </div>
-           
         </header>
-  )
-}
+    );
+};
 
-export default Header
+export default Header;

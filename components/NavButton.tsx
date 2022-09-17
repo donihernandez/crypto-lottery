@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import type { FC } from 'react';
 
 interface INavButtonProps {
     title: string;
@@ -7,9 +7,16 @@ interface INavButtonProps {
 }
 
 const NavButton: FC<INavButtonProps> = ({ title, isActive, onClick }) => {
-  return (
-      <button onClick={onClick} className={`${isActive && "bg-cyan-600"} hover:bg-cyan-600 text-white py-2 px-2 rounded`}>{title}</button>
-  )
-}
+    return (
+        <button
+            className={`${
+                isActive && 'bg-cyan-600'
+            } hover:bg-cyan-600 text-white py-2 px-2 rounded`}
+            onClick={onClick}
+        >
+            {title}
+        </button>
+    );
+};
 
-export default NavButton
+export default NavButton;

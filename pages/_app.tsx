@@ -1,13 +1,14 @@
-import { AppProps } from 'next/app'
-import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
-import '../styles/globals.css'
+import { AppProps } from 'next/app';
+import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <ThirdwebProvider desiredChainId={ChainId.Mainnet}>
-       <Component {...pageProps} />
-    </ThirdwebProvider>
-  ) 
+    const desiredChainId = ChainId.Mainnet;
+    return (
+        <ThirdwebProvider desiredChainId={desiredChainId}>
+            <Component {...pageProps} />
+        </ThirdwebProvider>
+    );
 }
 
-export default MyApp
+export default MyApp;
